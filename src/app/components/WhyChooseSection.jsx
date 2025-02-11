@@ -171,10 +171,13 @@ const WhyChooseSection = () => {
       </div>
 
       {/* CTA Button */}
-      <div className="flex justify-center mb-20">
-        <button className="bg-[#E225AA] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#D11A9D] transition-colors">
-          Try TalkNotes free for 7 days →
-        </button>
+      <div className="text-center mb-12">
+      <a 
+          href="#"
+          className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-lg hover:opacity-90 transition-opacity"
+        >
+          → Try TalkNotes free for 7 days
+        </a>
       </div>
 
       {/* Testimonial Section */}
