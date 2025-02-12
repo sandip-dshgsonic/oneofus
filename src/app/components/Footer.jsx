@@ -13,7 +13,7 @@ const Footer = () => {
           <Link href="/" className="flex items-center gap-2 mb-4">
             <img src="/Images/One-of-us-color.svg" alt="OneOfUs" className="h-28" />
           </Link>
-          <p className="text-sm mb-6">Turn your thoughts into actionable notes.</p>
+          {/* <p className="text-sm mb-6">Turn your thoughts into actionable notes.</p> */}
           <p className="text-xs">© 2025 Copyright all rights reserved.</p>
      
         </div>
