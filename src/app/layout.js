@@ -34,9 +34,10 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata = {
-  title: 'TalkNotes - Never Take Notes Again',
-  description: 'AI voice transcription and note-taking to save time, impress colleagues and clients with organized notes while working smarter, not harder.',
+  title: 'OneOfUs - AI & VR Music Revolution',
+  description: 'Experience the future of music with OneOfUs, a cutting-edge AI and VR-powered platform that lets you play alongside legendary musicians, get real-time feedback, and perform in immersive virtual concerts.',
 }
 
 export default function RootLayout({ children }) {

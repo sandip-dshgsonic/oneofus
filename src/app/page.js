@@ -52,12 +52,12 @@ export default function Home() {
           <WhyChooseSection />
           <HowItWorks />  
           <UseCasesPage /> 
-          <StylesSelector />
-          <ActionNotesSection />  
-          <PricingSection />  
+          {/* <StylesSelector /> */}
+          {/* <ActionNotesSection />   */}
+          {/* <PricingSection />   */}
           {/* <UserTestimonials />   (please you imported this code in pricingsection's code please check there )*/}
 
-          <FAQ />
+          {/* <FAQ /> */}
 
           <Footer />  
         </div>
