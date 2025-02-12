@@ -30,7 +30,7 @@ const Hero = () => {
               Get on the waitlist for this exciting app
             </button>
 
-            <div className="flex items-center justify-center lg:justify-start gap-2 mt-4">
+            {/* <div className="flex items-center justify-center lg:justify-start gap-2 mt-4">
               <span className="text-sm md:text-base text-gray-500">
                 Trusted by +10,000 users
               </span>
@@ -46,7 +46,7 @@ const Hero = () => {
                   </svg>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column */}
