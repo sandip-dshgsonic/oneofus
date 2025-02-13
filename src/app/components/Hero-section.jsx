@@ -236,17 +236,7 @@ const Hero = () => {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
                 />
               </div>
-              <div>
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Contact Number"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
-                />
-              </div>
+
               <div>
                 <input
                   type="email"
@@ -258,13 +248,25 @@ const Hero = () => {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
                 />
               </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Contact Number"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+              </div>
+              
 
               {/* reCAPTCHA Placeholder */}
-              <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+              {/* <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
                 <div className="text-center text-sm text-gray-500">
                   reCAPTCHA will be displayed here
                 </div>
-              </div>
+              </div> */}
 
               {/* Submit Button */}
               <button
