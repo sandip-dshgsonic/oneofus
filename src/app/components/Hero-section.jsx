@@ -113,7 +113,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-16 md:pt-20 pb-8 md:pb-12 mt-9">
+    <div className="pt-16 md:pt-20 pb-8 md:pb-12 mt-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-8 lg:mb-16">
           {/* Left Column */}
