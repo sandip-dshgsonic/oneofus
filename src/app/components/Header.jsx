@@ -10,7 +10,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/Images/One-of-us.svg"
+                src="/Images/One-of-us-color.svg"
                 alt="OneOfUs"
                 width={50}
                 height={60}

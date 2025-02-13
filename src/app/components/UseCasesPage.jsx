@@ -44,7 +44,7 @@ const UseCasesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-16 px-4">
+    <div className="bg-[#039FFF] min-h-screen flex flex-col items-center py-16 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-12 text-center">
         Why OneOfUs is the the bleeding edge of music technology
       </h1>
@@ -76,19 +76,11 @@ const UseCasesPage = () => {
         })}
       </div>
 
-      {/* Call to Action Button */}
-      {/* CTA Button */}
       <div className="flex justify-center mt-10">
-        {/* <button className="w-[200px] xl:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-10 py-4 rounded-lg text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-10">
+        <button className="w-full md:w-[400px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-4 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-4 md:gap-10 mb-6 md:mb-0">
           <span>→</span>
           Get on the waitlist for this exciting app
-        </button> */}
-
-
-<button className="w-full md:w-[400px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-4 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-4 md:gap-10 mb-6 md:mb-0">
-              <span>→</span>
-              Get on the waitlist for this exciting app
-            </button>
+        </button>
       </div>
     </div>
   );
