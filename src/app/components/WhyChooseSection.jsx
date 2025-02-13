@@ -89,7 +89,11 @@
 
 
 
-import React from 'react';
+// import React from 'react';
+
+'use client';
+import { useState } from "react";
+
 import Link from 'next/link';
 import { 
   Music2, 
@@ -101,6 +105,28 @@ import {
 } from 'lucide-react';
 
 const WhyChooseSection = () => {
+
+   const [isOpen, setIsOpen] = useState(false);
+    const [formData, setFormData] = useState({
+      name: "",
+      phone: "",
+      email: "",
+    });
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Handle form submission logic here
+      console.log("Form submitted:", formData);
+      setIsOpen(false);
+      setFormData({ name: "", phone: "", email: "" });
+    };
+  
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    };
   return (
     <div className="relative pattern-background">
       <div className="pattern-overlay"></div>
@@ -139,13 +165,104 @@ const WhyChooseSection = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <button className="w-full sm:w-[350px] md:w-[450px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-6 py-3 sm:py-4 rounded-lg text-sm sm:text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all flex items-center justify-center gap-4 shadow-lg">
+          <button 
+            onClick={() => setIsOpen(true)}
+          className="w-full sm:w-[350px] md:w-[450px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-6 py-3 sm:py-4 rounded-lg text-sm sm:text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all flex items-center justify-center gap-4 shadow-lg">
             <span>→</span>
             Get on the waitlist for this exciting app
           </button>
         </div>
 
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          {/* Modal Content */}
+          <div className="bg-white rounded-xl p-6 md:p-8 w-full max-w-md relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Form Header */}
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Join the Waitlist
+              </h2>
+              <p className="text-gray-600">
+                Get early access to our innovative platform
+              </p>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Contact Number"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+              </div>
+
+              {/* reCAPTCHA Placeholder */}
+              <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                <div className="text-center text-sm text-gray-500">
+                  reCAPTCHA will be displayed here
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white py-3 rounded-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300"
+              >
+                Join Waitlist
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
