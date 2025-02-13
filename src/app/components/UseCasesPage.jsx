@@ -247,7 +247,7 @@ const UseCasesPage = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-4 sm:p-5 rounded-xl bg-white/60 hover:bg-white/70 transition-all duration-300 backdrop-blur-sm"
+              className="p-4 sm:p-5 rounded-xl bg-white hover:bg-white/70 transition-all duration-300 backdrop-blur-sm"
             >
               <feature.Icon className="w-7 h-7 text-[#6366F1] mb-2" />
               <h3 className="text-md font-semibold text-[#2D3748] mb-2">{feature.title}</h3>
