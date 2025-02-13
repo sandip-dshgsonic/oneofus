@@ -60,7 +60,7 @@ const Footer = () => {
         {/* Contact Us Section */}
         <div className="col-span-1 text-left">
           <h3 className="text-lg text-white font-semibold mb-3 text-left">Contact Us</h3>
-          <Link href="mailto:office@oneofusdaretodream.com" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+          <Link href="mailto:office@oneofusdaretodream.com" className="flex items-center text-gray-300 hover:text-white transition text-left">
             <Mail size={18} />
             office@oneofusdaretodream.com
           </Link>
