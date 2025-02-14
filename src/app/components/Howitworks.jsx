@@ -540,7 +540,10 @@ export default function HowItWorks() {
 
               <div className="flex justify-center">
                 <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE"
+
+                //6LcsM9cqAAAAAFJUjYWibNwgPAwOEkTVcqApXm1V secrete key
+                //6LcsM9cqAAAAAAX2CYzmfMMsi8Hjr5svptE3NjiZ site key
+                  sitekey="6LcsM9cqAAAAAFJUjYWibNwgPAwOEkTVcqApXm1V"
                   onChange={onReCAPTCHAChange}
                   onError={() => {
                     setError('reCAPTCHA error occurred. Please try again.');
