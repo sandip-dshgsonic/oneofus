@@ -536,7 +536,7 @@ export default function HowItWorks() {
                 />
               </div>
 
-              <div className="flex justify-center">
+              {/* <div className="flex justify-center">
               <ReCAPTCHA
                   sitekey="6LcsM9cqAAAAAFJUjYWibNwgPAwOEkTVcqApXm1V"
                   onChange={onReCAPTCHAChange}
@@ -544,7 +544,7 @@ export default function HowItWorks() {
                     setError('reCAPTCHA error occurred. Please try again.');
                   }}
                 />
-              </div>
+              </div> */}
 
               <button
                 type="submit"
