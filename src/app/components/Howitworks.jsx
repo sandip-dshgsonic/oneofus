@@ -542,7 +542,7 @@ export default function HowItWorks() {
 
               <div className="flex justify-center">
                 <ReCAPTCHA
-                  sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your actual site key
+                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE" // Replace with your actual site key
                   onChange={handleRecaptchaChange}
                   onExpired={() => setRecaptchaValue(null)}
                   onError={() => {
