@@ -192,11 +192,13 @@ const Hero = () => {
               </div>
 
               {/* reCAPTCHA Component */}
-              {/* {6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE  (secrete key)} */}
+              {/* {6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE  (secrete key)}
+              
+              {6LcL7dYqAAAAAOSjiPzhd4BJQvURR7sFi2fnfVoZ} (site key)*/}
 
               <div className="flex justify-center">
                 <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAOSjiPzhd4BJQvURR7sFi2fnfVoZ"
+                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE"
                   onChange={handleRecaptchaChange}
                 />
               </div>
