@@ -93,6 +93,7 @@
 
 'use client';
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import Link from 'next/link';
 import { 
@@ -112,6 +113,13 @@ const WhyChooseSection = () => {
       phone: "",
       email: "",
     });
+
+
+    const [recaptchaValue, setRecaptchaValue] = useState(null);
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -176,7 +184,7 @@ const WhyChooseSection = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 mt-9">
           {/* Modal Content */}
           <div className="bg-white rounded-xl p-6 md:p-8 w-full max-w-md relative">
             {/* Close Button */}
@@ -247,12 +255,13 @@ const WhyChooseSection = () => {
               </div>
             
 
-              {/* reCAPTCHA Placeholder */}
-              {/* <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                <div className="text-center text-sm text-gray-500">
-                  reCAPTCHA will be displayed here
-                </div>
-              </div> */}
+               {/* reCAPTCHA Component */}
+               <div className="flex justify-center">
+                <ReCAPTCHA
+                  sitekey="6LcL7dYqAAAAAOSjiPzhd4BJQvURR7sFi2fnfVoZ"
+                  onChange={handleRecaptchaChange}
+                />
+              </div>
 
               {/* Submit Button */}
               <button
