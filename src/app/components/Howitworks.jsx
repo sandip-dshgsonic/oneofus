@@ -307,13 +307,11 @@
 
 
 
-
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import ReCAPTCHA from "react-google-recaptcha";
-
 
 export default function HowItWorks() {
   const [openStep, setOpenStep] = useState(null);
@@ -323,19 +321,63 @@ export default function HowItWorks() {
     phone: "",
     email: "",
   });
-
   const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Cleanup effect for recaptcha
+  useEffect(() => {
+    return () => {
+      setRecaptchaValue(null);
+    };
+  }, []);
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);
+    setError(null); // Clear any previous errors
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-    setIsOpen(false);
-    setFormData({ name: "", phone: "", email: "" });
+    
+    // Validate reCAPTCHA
+    if (!recaptchaValue) {
+      setError("Please complete the reCAPTCHA verification");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Replace with your actual API endpoint
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken: recaptchaValue
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      // Reset form on success
+      setFormData({ name: "", phone: "", email: "" });
+      setRecaptchaValue(null);
+      setIsOpen(false);
+      alert('Successfully joined the waitlist!');
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setError('Failed to submit form. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -343,6 +385,7 @@ export default function HowItWorks() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    setError(null); // Clear any previous errors
   };
 
   const toggleStep = (id) => {
@@ -413,8 +456,6 @@ export default function HowItWorks() {
         ))}
       </div>
 
-      {/* Call to Action Button */}
-      {/* CTA Button */}
       <div className="flex justify-center mt-10">
         <button
           onClick={() => setIsOpen(true)}
@@ -426,10 +467,8 @@ export default function HowItWorks() {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 mt-9">
-          {/* Modal Content */}
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl p-6 md:p-8 w-full max-w-md relative">
-            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -449,7 +488,6 @@ export default function HowItWorks() {
               </svg>
             </button>
 
-            {/* Form Header */}
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Join the Waitlist
@@ -459,7 +497,12 @@ export default function HowItWorks() {
               </p>
             </div>
 
-            {/* Form */}
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
@@ -484,6 +527,7 @@ export default function HowItWorks() {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
                 />
               </div>
+
               <div>
                 <input
                   type="tel"
@@ -495,22 +539,35 @@ export default function HowItWorks() {
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
                 />
               </div>
-             
 
-              {/* reCAPTCHA Component */}
               <div className="flex justify-center">
                 <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE"
+                  sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your actual site key
                   onChange={handleRecaptchaChange}
+                  onExpired={() => setRecaptchaValue(null)}
+                  onError={() => {
+                    setError('reCAPTCHA error occurred. Please try again.');
+                    setRecaptchaValue(null);
+                  }}
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white py-3 rounded-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300"
+                disabled={isLoading || !recaptchaValue}
+                className="w-full bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white py-3 rounded-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Join Waitlist
+                {isLoading ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                  </span>
+                ) : (
+                  "Join Waitlist"
+                )}
               </button>
             </form>
           </div>
