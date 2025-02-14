@@ -554,7 +554,7 @@ export default function HowItWorks() {
 
 
                 <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE" // Replace with your actual site key
+                  sitekey="6LcL7dYqAAAAAOSjiPzhd4BJQvURR7sFi2fnfVoZ" // Replace with your actual site key
                   onChange={(val) => setCapVal(val)}
                   onError={() => {
                     setError('reCAPTCHA error occurred. Please try again.');
