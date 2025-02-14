@@ -306,7 +306,6 @@
 
 
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -321,7 +320,6 @@ export default function HowItWorks() {
     phone: "",
     email: "",
   });
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [capVal, setCapVal] = useState(null);
@@ -329,20 +327,19 @@ export default function HowItWorks() {
   // Cleanup effect for recaptcha
   useEffect(() => {
     return () => {
-      setRecaptchaValue(null);
+      setCapVal(null); // Reset reCAPTCHA
     };
   }, []);
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-    setError(null); // Clear any previous errors
+  const onReCAPTCHAChange = (value) => {
+    setCapVal(value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Validate reCAPTCHA
-    if (!recaptchaValue) {
+    if (!capVal) {
       setError("Please complete the reCAPTCHA verification");
       return;
     }
@@ -359,7 +356,7 @@ export default function HowItWorks() {
         },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken: recaptchaValue
+          recaptchaToken: capVal
         }),
       });
 
@@ -369,7 +366,7 @@ export default function HowItWorks() {
 
       // Reset form on success
       setFormData({ name: "", phone: "", email: "" });
-      setRecaptchaValue(null);
+      setCapVal(null);
       setIsOpen(false);
       alert('Successfully joined the waitlist!');
       
@@ -542,29 +539,18 @@ export default function HowItWorks() {
               </div>
 
               <div className="flex justify-center">
-                {/* <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE" // Replace with your actual site key
-                  onChange={handleRecaptchaChange}
-                  onExpired={() => setRecaptchaValue(null)}
-                  onError={() => {
-                    setError('reCAPTCHA error occurred. Please try again.');
-                    setRecaptchaValue(null);
-                  }}
-                /> */}
-
-
                 <ReCAPTCHA
-                  sitekey="6LcL7dYqAAAAAOSjiPzhd4BJQvURR7sFi2fnfVoZ" // Replace with your actual site key
-                  onChange={(val) => setCapVal(val)}
+                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE"
+                  onChange={onReCAPTCHAChange}
                   onError={() => {
                     setError('reCAPTCHA error occurred. Please try again.');
-                    setRecaptchaValue(null);
-                  }}/>
+                  }}
+                />
               </div>
 
               <button
                 type="submit"
-                disabled={isLoading || !recaptchaValue}
+                disabled={isLoading || !capVal}
                 className="w-full bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white py-3 rounded-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
