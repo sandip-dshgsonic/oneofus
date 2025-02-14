@@ -324,6 +324,7 @@ export default function HowItWorks() {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [capVal, setCapVal] = useState(null);
 
   // Cleanup effect for recaptcha
   useEffect(() => {
@@ -541,7 +542,7 @@ export default function HowItWorks() {
               </div>
 
               <div className="flex justify-center">
-                <ReCAPTCHA
+                {/* <ReCAPTCHA
                   sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE" // Replace with your actual site key
                   onChange={handleRecaptchaChange}
                   onExpired={() => setRecaptchaValue(null)}
@@ -549,7 +550,16 @@ export default function HowItWorks() {
                     setError('reCAPTCHA error occurred. Please try again.');
                     setRecaptchaValue(null);
                   }}
-                />
+                /> */}
+
+
+                <ReCAPTCHA
+                  sitekey="6LcL7dYqAAAAAER3l4pvCbcoIryC6jAgWSz6yzjE" // Replace with your actual site key
+                  onChange={(val) => setCapVal(val)}
+                  onError={() => {
+                    setError('reCAPTCHA error occurred. Please try again.');
+                    setRecaptchaValue(null);
+                  }}/>
               </div>
 
               <button
