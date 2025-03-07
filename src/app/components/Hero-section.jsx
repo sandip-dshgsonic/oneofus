@@ -48,7 +48,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-8 lg:mb-16">
           {/* Left Column */}
           <div className="text-center lg:text-left">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#2ab4ef]">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#0378c0]">
               Transform The Music Industry By Integrating VR And
              
                 AI Into An Innovative Music Platform.
