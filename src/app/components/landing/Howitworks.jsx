@@ -276,9 +276,12 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import ReCAPTCHA from "react-google-recaptcha";
+import WaitlistPopup from '../WaitlistPopup';
+
 
 export default function HowItWorks() {
   const [openStep, setOpenStep] = useState(null);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -420,13 +423,24 @@ export default function HowItWorks() {
       </div>
 
       <div className="flex justify-center mt-10">
-        <button
+        {/* <button
           onClick={() => setIsOpen(true)}
           className="w-full md:w-[400px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-4 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-4 md:gap-10 mb-6 md:mb-0"
         >
           <span>→</span>
           Get on the waitlist for this exciting app
-        </button>
+        </button> */}
+
+<button
+              onClick={() => setIsOpen(true)}
+              className="w-full md:w-[400px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-4 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-4 md:gap-10 mb-6 md:mb-0"
+            >
+              <span>→</span>
+              Get on the waitlist for this exciting app
+            </button>
+         
+
+        
       </div>
 
       {isOpen && (
@@ -534,6 +548,9 @@ export default function HowItWorks() {
           </div>
         </div>
       )}
+
+            <WaitlistPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+      
     </div>
   );
 }

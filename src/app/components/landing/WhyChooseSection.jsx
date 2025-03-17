@@ -94,6 +94,8 @@
 'use client';
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import WaitlistPopup from '../WaitlistPopup';
+
 
 import Link from 'next/link';
 import { 
@@ -108,6 +110,7 @@ import {
 const WhyChooseSection = () => {
 
    const [isOpen, setIsOpen] = useState(false);
+   
     const [formData, setFormData] = useState({
       name: "",
       phone: "",
@@ -155,12 +158,12 @@ const WhyChooseSection = () => {
           
           {/* Cards */}
           {[ 
-            { Icon: Music2, title: "AI-generated legendary musicians", desc: "Perform with avatars of iconic rock, pop, and jazz stars in a virtual concert." },
-            { Icon: Mic2, title: "Real-instrument integration", desc: "Connect personal instruments via an external sound card for enhanced realism." },
-            { Icon: ActivitySquare, title: "Real-time feedback", desc: "AI analyzes performance accuracy, rhythm, and speed to provide feedback." },
-            { Icon: Users, title: "Social connectivity", desc: "Engage in collaborative virtual performances and interact with audiences." },
-            { Icon: Layers, title: "Scalable expansions", desc: "Future updates will introduce more genres, AI musicians, and multiplayer." },
-            { Icon: Star, title: "Live your dream", desc: "Play like and with your idols on the big stage using this app." }
+            { Icon: Music2, title: "AI-generated legendary musicians", desc: "Perform and interact with our avatars of iconic music stars across diverse styles in an electrifying virtual concert!" },
+            { Icon: Mic2, title: "Real-instrument integration", desc: " With our technology you can connect your personal instruments via an external sound card for unparalleled realism!" },
+            { Icon: ActivitySquare, title: "Real-time feedback", desc: "We will have AI analyze your accuracy, pace, and speed to give you real-time feedback and boost your performance!" },
+            { Icon: Users, title: "Social connectivity", desc: " Join our collaborative virtual performances and connect with audiences like never before!" },
+            { Icon: Layers, title: "Scalable expansions", desc: "Our future updates will bring more genres, AI musicians, and exciting multiplayer action!" },
+            { Icon: Star, title: "Live your dream", desc: "With our app, we'll make you play like a star alongside your idols on the big stage!" }
           ].map(({ Icon, title, desc }, index) => (
             <div key={index} className="p-4 sm:p-5 rounded-xl bg-white hover:bg-white/70 transition-all duration-300 backdrop-blur-sm">
               <Icon className="w-7 h-7 text-[#6366F1] mb-2" />
@@ -173,12 +176,13 @@ const WhyChooseSection = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <button 
-            onClick={() => setIsOpen(true)}
-          className="w-full sm:w-[350px] md:w-[450px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-6 py-3 sm:py-4 rounded-lg text-sm sm:text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all flex items-center justify-center gap-4 shadow-lg">
-            <span>→</span>
-            Get on the waitlist for this exciting app
-          </button>
+        <button
+              onClick={() => setIsOpen(true)}
+              className="w-full md:w-[400px] lg:w-[500px] bg-gradient-to-r from-[#ff007a] to-[#8a00ff] text-white px-4 md:px-10 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:from-[#e60071] hover:to-[#7500d9] transition-all duration-300 flex items-center justify-center gap-4 md:gap-10 mb-6 md:mb-0"
+            >
+              <span>→</span>
+              Get on the waitlist for this exciting app
+            </button>
         </div>
 
       </div>
@@ -274,6 +278,9 @@ const WhyChooseSection = () => {
           </div>
         </div>
       )}
+
+<WaitlistPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+
     </div>
   );
 };

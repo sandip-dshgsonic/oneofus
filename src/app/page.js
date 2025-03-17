@@ -29,17 +29,17 @@
 
 
 
-import Header from '../app/components/Header'
-import Hero from '../app/components/Hero-section'
-import WhyChooseSection from '../app/components/WhyChooseSection'
-import StylesSelector from './components/StylesSelector'
-import HowItWorks from './components/Howitworks'
-import UseCasesPage from './components/UseCasesPage'
-import ActionNotesSection from './components/ActionNotesSection'
-import PricingSection from './components/PricingSection'
+import Header from './components/landing/Header'
+import HeroSection from './components/landing/Hero-section'
+import WhyChooseSection from './components/landing/WhyChooseSection'
+import StylesSelector from './components/landing/StylesSelector'
+import HowItWorks from './components/landing/Howitworks'
+import UseCasesPage from './components/landing/UseCasesPage'
+import ActionNotesSection from './components/landing/ActionNotesSection'
+import PricingSection from './components/landing/PricingSection'
 // import UserTestimonials from './components/UserTestimonials'
-import FAQ from './components/FAQ'
-import Footer from './components/Footer'
+import FAQ from './components/landing/FAQ'
+import Footer from './components/landing/Footer'
 
 export default function Home() {
   return (
@@ -48,7 +48,7 @@ export default function Home() {
       <main className="min-h-screen bg-white relative">
         <div className="absolute inset-0 pattern-overlay pointer-events-none"></div>
         <div className="relative z-10">
-          <Hero />
+          <HeroSection />
           <WhyChooseSection />
           <HowItWorks />  
           <UseCasesPage /> 

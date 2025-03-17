@@ -48,7 +48,7 @@ const Footer = () => {
         
         {/* Logo and Company Info */}
         <div className="col-span-1">
-          <Link href="/" className="flex items-center gap-2 mb-4">
+          <Link href="/" className="flex items-center gap-2 mb-4 ml-5">
             <img src="/Images/One-of-us-color.svg" alt="OneOfUs" className="h-28" />
           </Link>
           <p className="text-xs">© 2025 All rights reserved.</p>
