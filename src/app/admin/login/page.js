@@ -134,7 +134,7 @@ export default function AdminLogin() {
                   value={credentials.email}
                   onChange={handleChange}
                   className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="admin@dshgsonic.com"
+                  placeholder="xyz@dshgsonic.com"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function AdminLogin() {
                   value={credentials.password}
                   onChange={handleChange}
                   className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="Admin@123"
+                  placeholder="Xyz@123"
                 />
               </div>
             </div>
