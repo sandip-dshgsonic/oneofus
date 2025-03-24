@@ -362,32 +362,32 @@ export default function HowItWorks() {
     {
       id: 1,
       title: "Real Instrument Integration",
-      text: "Offers a realistic playing experience that enhances learning and engagement by allowing musicians to use their own instruments.",
+      text: " We offer a realistic playing experience that boosts learning and engagement, letting musicians play with their own instruments!",
     },
     {
       id: 2,
       title: "Immersive Live Stage Experience",
-      text: "Delivers an engaging, dream-like experience that combines entertainment with skill-building, offering a sense of achievement and belonging.",
+      text: "We deliver an engaging, dream-like experience that blends entertainment and skill-building, giving you a sense of achievement and belonging!",
     },
     {
       id: 3,
       title: "AI-Driven Performance Feedback",
-      text: "Helps users improve their musical skills efficiently, as they receive detailed, actionable insights on how to enhance their performance.",
+      text: "We help users rapidly elevate their musical skills with detailed, actionable insights for peak performance!",
     },
     {
       id: 4,
       title: "Virtual Interaction with Music Icons",
-      text: "Makes the experience more engaging and motivating by enabling users to receive personalized coaching from legendary artists.",
+      text: "We make the experience more engaging and motivating by offering personalized coaching from legendary artists!",
     },
     {
       id: 5,
       title: "Social and Collaborative Features",
-      text: "Promotes collaboration and community-building, creating a vibrant network of users who can learn from each other.",
+      text: "We foster collaboration and community, connecting users in a vibrant network to learn, grow, and thrive together!",
     },
     {
       id: 6,
       title: "VR Compatibility",
-      text: "Enhances the realism and depth of the music experience, making it feel like users are on a real stage with live audiences.",
+      text: "We amplify the realism and depth of the music experience, making users feel like they're on a real stage with a live audience!",
     },
   ];
 

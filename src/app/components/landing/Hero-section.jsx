@@ -534,7 +534,7 @@ const HeroSection = () => {
           
           {/* Unmute instruction */}
           <div className="text-center mt-4">
-            <p className="text-gray-500 text-sm">🔊 Click the video to unmute</p>
+            <p className="text-gray-500 text-xl font-bold">🔊 Click the video to unmute</p>
           </div>
           
           {/* Call to action below video */}

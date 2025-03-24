@@ -51,7 +51,7 @@ export default function Home() {
           <HeroSection />
           <WhyChooseSection />
           <HowItWorks />  
-          <UseCasesPage /> 
+          {/* <UseCasesPage />  */}
           {/* <StylesSelector /> */}
           {/* <ActionNotesSection />   */}
           {/* <PricingSection />   */}
